@@ -10,7 +10,7 @@
     "license": {
       "name": "MIT"
     },
-    "description": "The API V1"
+    "description": "The API V1.1"
   },
   "servers": [
     {
