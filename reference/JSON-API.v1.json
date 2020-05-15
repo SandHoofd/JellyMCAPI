@@ -1,0 +1,301 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "JSON API",
+    "version": "1.0",
+    "contact": {
+      "name": "Sander",
+      "email": "info@vanhoogdalem.dev"
+    },
+    "license": {
+      "name": "MIT"
+    },
+    "description": "The API V1"
+  },
+  "servers": [
+    {
+      "url": "https://api-jellymc.vanhoogdalem.dev/V1",
+      "description": "Jelly MC"
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "summary": "Send Servercode to get Session Token",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "SessionKey": {
+                      "type": "string"
+                    },
+                    "logged_in_time": {
+                      "type": "string"
+                    },
+                    "valid_until": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "SessionKey": "rEuPHtMGE44hXvnZLGig",
+                      "logged_in_time": "2020-05-12T03:25:17",
+                      "valid_until": "2020-05-13T01:25:17"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-auth-login",
+        "description": "Login to the API and get Session Token for POST Requests",
+        "parameters": [],
+        "security": [
+          {
+            "SubscriptionKey": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "serverCode": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "serverCode": "game42_916329>GHBOEWQ20"
+                  }
+                }
+              }
+            }
+          },
+          "description": "In this object you will send the serverCode"
+        }
+      }
+    },
+    "/player/{uuid}/activity/history/{from}/{until}/{server_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "uuid",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "from",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "until",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "server_id",
+          "in": "path",
+          "allowEmptyValue": true
+        }
+      ],
+      "get": {
+        "summary": "Activity History",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Actives": {
+                      "type": "object",
+                      "properties": {
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "start_timestamp": {
+                          "type": "string"
+                        },
+                        "end_timestamp": {
+                          "type": "string"
+                        },
+                        "server": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "Inactives": {
+                      "type": "object",
+                      "properties": {
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "start_timestamp": {
+                          "type": "string"
+                        },
+                        "end_timestamp": {
+                          "type": "string"
+                        },
+                        "server": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "Actives": {
+                        "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                        "start_timestamp": "2020-05-10T12:16:14",
+                        "end_timestamp": "2020-05-10T12:17:34",
+                        "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                      },
+                      "Inactives": {
+                        "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                        "start_timestamp": "2020-05-10T12:16:14",
+                        "end_timestamp": "2020-05-10T12:17:34",
+                        "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-1": {}
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-player-playerid",
+        "parameters": [],
+        "security": [
+          {
+            "SubscriptionKey": []
+          }
+        ],
+        "description": "Get Player Activity History based on timestamps"
+      }
+    },
+    "/player/{uuid}/excluded": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9-_]+",
+            "minLength": 32,
+            "maxLength": 36
+          },
+          "name": "uuid",
+          "in": "path",
+          "description": "The UUID of the player",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get Player Excluded data",
+        "tags": [
+          "The excludable"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "excluded": {
+                      "type": "boolean",
+                      "description": "The excluded boolean\n"
+                    },
+                    "start_timestamp": {
+                      "type": "string",
+                      "description": "The timestamp when the exclude starts"
+                    },
+                    "end_timestamp": {
+                      "type": "string",
+                      "description": "The timestamp when the exclude ends"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "The reason of the exclusion"
+                    }
+                  }
+                },
+                "examples": {
+                  "Excluded": {
+                    "value": {
+                      "Excluded": true,
+                      "start_timestamp": "2020-10-05T13:10:14",
+                      "end_timestamp": "2020-10-06T19:30:43",
+                      "reason": "Cheating"
+                    }
+                  },
+                  "Not excluded": {
+                    "value": {
+                      "Excluded": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-player-uuid-excluded",
+        "description": "Get player Excluded data",
+        "requestBody": {}
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "SubscriptionKey": {
+        "name": "SubscriptionKey",
+        "type": "apiKey",
+        "in": "header"
+      },
+      "SessionKey": {
+        "name": "SessionKey",
+        "type": "apiKey",
+        "in": "header"
+      }
+    }
+  }
+}
