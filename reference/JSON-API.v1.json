@@ -247,7 +247,7 @@
                     },
                     "start_timestamp": {
                       "type": "string",
-                      "description": "The timestamp when the exclude starts"
+                      "description": "The timestamp when the exclude starts // YYYY-MM-DD(t)H:I:s"
                     },
                     "end_timestamp": {
                       "type": "string",
@@ -257,7 +257,10 @@
                       "type": "string",
                       "description": "The reason of the exclusion"
                     }
-                  }
+                  },
+                  "required": [
+                    "excluded"
+                  ]
                 },
                 "examples": {
                   "Excluded": {
