@@ -280,7 +280,12 @@
         },
         "operationId": "get-player-uuid-excluded",
         "description": "Get player Excluded data",
-        "requestBody": {}
+        "requestBody": {},
+        "security": [
+          {
+            "SubscriptionKey": []
+          }
+        ]
       }
     }
   },
