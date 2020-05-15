@@ -205,12 +205,12 @@
         },
         "operationId": "get-player-playerid",
         "parameters": [],
+        "description": "Get Player Activity History based on timestamps",
         "security": [
           {
             "SubscriptionKey": []
           }
-        ],
-        "description": "Get Player Activity History based on timestamps"
+        ]
       }
     },
     "/player/{uuid}/excluded": {
