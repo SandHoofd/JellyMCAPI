@@ -216,7 +216,8 @@
           }
         ],
         "tags": [
-          "Player information"
+          "Player information",
+          "Player-Activity"
         ]
       }
     },
@@ -326,9 +327,10 @@
         }
       ],
       "get": {
-        "summary": "Get latest records",
+        "summary": "Get latest activity Records",
         "tags": [
-          "Player information"
+          "Player information",
+          "Player-Activity"
         ],
         "responses": {},
         "operationId": "get-player-uuid-activity-amount-server_id"
