@@ -448,7 +448,7 @@
         },
         {
           "schema": {
-            "type": "string"
+            "type": "number"
           },
           "name": "amount",
           "in": "path",
@@ -456,7 +456,7 @@
         }
       ],
       "get": {
-        "summary": "Get latest player ranks",
+        "summary": "getlatest",
         "tags": [
           "Player-Ranks"
         ],
@@ -474,16 +474,19 @@
                     "value": {
                       "Ranks": [
                         {
+                          "id": 1,
                           "name": "Wood",
                           "start_timestamp": "2020-05-04T01:16:47",
                           "end_timestamp": "2020-05-10T12:16:14"
                         },
                         {
+                          "id": 2,
                           "name": "Stone",
                           "start_timestamp": "2020-05-10T12:16:14",
                           "end_timestamp": "2020-05-19T12:17:34"
                         },
                         {
+                          "id": 3,
                           "name": "Lapis",
                           "start_timestamp": "2020-05-19T12:17:34",
                           "end_timestamp": null
@@ -507,7 +510,7 @@
           }
         },
         "operationId": "get-player-uuid-ranks-amount",
-        "description": "Get the latest player ranks of a player. ",
+        "description": "Get the latest player ranks of a player..",
         "security": [
           {
             "SubscriptionKey": []
