@@ -338,8 +338,54 @@
         "tags": [
           "Player-Activity"
         ],
-        "responses": {},
-        "operationId": "get-player-uuid-activity-amount-server_id"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Actives": [
+                        {
+                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                          "start_timestamp": "2020-05-10T12:16:14",
+                          "end_timestamp": "2020-05-10T12:17:34",
+                          "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                        }
+                      ],
+                      "Inactives": [
+                        {
+                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                          "start_timestamp": "2020-05-10T12:16:14",
+                          "end_timestamp": "2020-05-10T12:17:34",
+                          "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                        },
+                        {
+                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                          "start_timestamp": "2020-05-12T12:16:14",
+                          "end_timestamp": "2020-05-12T12:17:34",
+                          "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-player-uuid-activity-amount-server_id",
+        "security": [
+          {
+            "SubscriptionKey": []
+          }
+        ],
+        "description": "Get the latest activity records from the database, based on amounts with a number of limit."
       }
     }
   },
