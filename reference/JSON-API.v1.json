@@ -91,7 +91,8 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
           "name": "uuid",
           "in": "path",
@@ -99,7 +100,8 @@
         },
         {
           "schema": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "name": "from",
           "in": "path",
@@ -107,7 +109,8 @@
         },
         {
           "schema": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "name": "until",
           "in": "path",
@@ -227,7 +230,8 @@
             "type": "string",
             "pattern": "^[A-Za-z0-9-_]+",
             "minLength": 32,
-            "maxLength": 36
+            "maxLength": 36,
+            "format": "uuid"
           },
           "name": "uuid",
           "in": "path",
@@ -311,7 +315,11 @@
         },
         {
           "schema": {
-            "type": "string"
+            "type": "number",
+            "exclusiveMinimum": false,
+            "minimum": 1,
+            "maximum": 3,
+            "format": "float"
           },
           "name": "amount",
           "in": "path",
