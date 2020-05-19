@@ -216,7 +216,6 @@
           }
         ],
         "tags": [
-          "Player information",
           "Player-Activity"
         ]
       }
@@ -329,7 +328,6 @@
       "get": {
         "summary": "Get latest activity Records",
         "tags": [
-          "Player information",
           "Player-Activity"
         ],
         "responses": {},
