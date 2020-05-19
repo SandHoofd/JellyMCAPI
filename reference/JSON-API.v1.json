@@ -476,20 +476,17 @@
                         {
                           "id": 1,
                           "name": "Wood",
-                          "start_timestamp": "2020-05-04T01:16:47",
-                          "end_timestamp": "2020-05-10T12:16:14"
+                          "start_timestamp": "2020-05-04T01:16:47"
                         },
                         {
                           "id": 2,
                           "name": "Stone",
-                          "start_timestamp": "2020-05-10T12:16:14",
-                          "end_timestamp": "2020-05-19T12:17:34"
+                          "start_timestamp": "2020-05-10T12:16:14"
                         },
                         {
                           "id": 3,
                           "name": "Lapis",
-                          "start_timestamp": "2020-05-19T12:17:34",
-                          "end_timestamp": null
+                          "start_timestamp": "2020-05-19T12:17:34"
                         }
                       ]
                     }
