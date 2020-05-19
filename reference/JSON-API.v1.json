@@ -238,7 +238,6 @@
       "get": {
         "summary": "Get Player Excluded data",
         "tags": [
-          "The excludable",
           "Player information"
         ],
         "responses": {
