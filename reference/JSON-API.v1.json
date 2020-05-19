@@ -387,6 +387,133 @@
         ],
         "description": "Get the latest activity records from the database, based on amounts with a number of limit."
       }
+    },
+    "/player/{uuid}/ranks/history/{from}/{until}/{server_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "uuid",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "from",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "until",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "server_id",
+          "in": "path"
+        }
+      ],
+      "get": {
+        "summary": "Get player ranks between timestamp",
+        "tags": [
+          "Player-Ranks"
+        ],
+        "responses": {},
+        "operationId": "get-player-uuid-ranks-history-from-until-server_id",
+        "security": [
+          {
+            "SubscriptionKey": []
+          }
+        ]
+      }
+    },
+    "/player/{uuid}/ranks/{amount}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "uuid",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "amount",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get latest player ranks",
+        "tags": [
+          "Player-Ranks"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Ranks": [
+                        {
+                          "name": "Wood",
+                          "start_timestamp": "2020-05-04T01:16:47",
+                          "end_timestamp": "2020-05-10T12:16:14"
+                        },
+                        {
+                          "name": "Stone",
+                          "start_timestamp": "2020-05-10T12:16:14",
+                          "end_timestamp": "2020-05-19T12:17:34"
+                        },
+                        {
+                          "name": "Lapis",
+                          "start_timestamp": "2020-05-19T12:17:34",
+                          "end_timestamp": null
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-player-uuid-ranks-amount",
+        "description": "Get the latest player ranks of a player. ",
+        "security": [
+          {
+            "SubscriptionKey": []
+          }
+        ]
+      }
     }
   },
   "components": {
