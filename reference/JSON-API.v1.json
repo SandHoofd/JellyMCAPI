@@ -214,6 +214,9 @@
           {
             "SubscriptionKey": []
           }
+        ],
+        "tags": [
+          "Player information"
         ]
       }
     },
@@ -235,7 +238,8 @@
       "get": {
         "summary": "Get Player Excluded data",
         "tags": [
-          "The excludable"
+          "The excludable",
+          "Player information"
         ],
         "responses": {
           "200": {
@@ -324,7 +328,9 @@
       ],
       "get": {
         "summary": "Get latest records",
-        "tags": [],
+        "tags": [
+          "Player information"
+        ],
         "responses": {},
         "operationId": "get-player-uuid-activity-amount-server_id"
       }
