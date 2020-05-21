@@ -84,7 +84,10 @@
             }
           },
           "description": "In this object you will send the serverCode"
-        }
+        },
+        "tags": [
+          "Authentication"
+        ]
       }
     },
     "/player/{uuid}/activity/history/{from}/{until}/{server_id}": {
