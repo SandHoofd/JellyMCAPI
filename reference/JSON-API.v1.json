@@ -391,7 +391,7 @@
         "description": "Get the latest activity records from the database, based on amounts with a number of limit."
       }
     },
-    "/player/{uuid}/ranks/history/{from}/{until}/{server_id}": {
+    "/player/{uuid}/ranks/history/{from}/{until}": {
       "parameters": [
         {
           "schema": {
@@ -416,13 +416,6 @@
           "name": "until",
           "in": "path",
           "required": true
-        },
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "server_id",
-          "in": "path"
         }
       ],
       "get": {
@@ -430,7 +423,22 @@
         "tags": [
           "Player-Ranks"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {}
+                }
+              }
+            }
+          }
+        },
         "operationId": "get-player-uuid-ranks-history-from-until-server_id",
         "security": [
           {
