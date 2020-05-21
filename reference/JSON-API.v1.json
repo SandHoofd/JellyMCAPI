@@ -534,7 +534,63 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response_code": {
+                      "type": "integer"
+                    },
+                    "updated_users": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          }
+                        },
+                        "required": [
+                          "uuid"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "response_code",
+                    "updated_users"
+                  ]
+                },
+                "examples": {
+                  "Multiple users": {
+                    "value": {
+                      "response_code": 200,
+                      "updated_users": [
+                        {
+                          "uuid": "2eb469bb-0d37-4ff3-9810-5bb943f5787b"
+                        },
+                        {
+                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28"
+                        }
+                      ]
+                    }
+                  },
+                  "One user": {
+                    "value": {
+                      "response_code": 200,
+                      "updated_users": [
+                        {
+                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "operationId": "post-ranks-update",
@@ -612,8 +668,15 @@
                   }
                 }
               }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
             }
-          }
+          },
+          "description": "Send a array of objects to the API for users that must be updated"
         }
       }
     }
