@@ -72,7 +72,10 @@
                   "serverCode": {
                     "type": "string"
                   }
-                }
+                },
+                "required": [
+                  "serverCode"
+                ]
               },
               "examples": {
                 "application/json": {
