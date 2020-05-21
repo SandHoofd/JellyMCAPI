@@ -60,7 +60,7 @@
         "parameters": [],
         "security": [
           {
-            "SubscriptionKey": []
+            "Subscription Key": []
           }
         ],
         "requestBody": {
@@ -218,7 +218,7 @@
         "description": "Get Player Activity History based on timestamps",
         "security": [
           {
-            "SubscriptionKey": []
+            "Subscription Key": []
           }
         ],
         "tags": [
@@ -300,7 +300,7 @@
         "requestBody": {},
         "security": [
           {
-            "SubscriptionKey": []
+            "Subscription Key": []
           }
         ]
       }
@@ -385,7 +385,7 @@
         "operationId": "get-player-uuid-activity-amount-server_id",
         "security": [
           {
-            "SubscriptionKey": []
+            "Subscription Key": []
           }
         ],
         "description": "Get the latest activity records from the database, based on amounts with a number of limit."
@@ -442,7 +442,7 @@
         "operationId": "get-player-uuid-ranks-history-from-until-server_id",
         "security": [
           {
-            "SubscriptionKey": []
+            "Subscription Key": []
           }
         ]
       }
@@ -521,20 +521,111 @@
         "description": "Get the latest player ranks of a player..",
         "security": [
           {
-            "SubscriptionKey": []
+            "Subscription Key": []
           }
         ]
+      }
+    },
+    "/ranks/update": {
+      "post": {
+        "summary": "updateRanks",
+        "tags": [
+          "Player-Ranks"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "operationId": "post-ranks-update",
+        "description": "Update rank of player, also usable for mulitple user after the fallback server",
+        "security": [
+          {
+            "Subscription Key": []
+          },
+          {
+            "The session key": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ranks": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "uuid": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "rank_name": {
+                          "type": "string"
+                        },
+                        "start_time": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "uuid",
+                        "rank_name",
+                        "start_time"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "ranks"
+                ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "ranks": [
+                      {
+                        "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                        "rank_name": "Lapis",
+                        "start_time": "2020-05-21T13:50:10"
+                      },
+                      {
+                        "uuid": "16fdbe74-daf6-434f-9701-558d01c73G91",
+                        "rank_name": "Gold",
+                        "start_time": "2020-05-21T16:50:10"
+                      }
+                    ]
+                  }
+                },
+                "example-2": {
+                  "value": {
+                    "ranks": [
+                      {
+                        "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                        "rank_name": "Lapis",
+                        "start_time": "2020-05-21T13:50:10"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
   "components": {
     "securitySchemes": {
-      "SubscriptionKey": {
+      "Subscription Key": {
         "name": "SubscriptionKey",
         "type": "apiKey",
         "in": "header"
       },
-      "SessionKey": {
+      "The session key": {
         "name": "SessionKey",
         "type": "apiKey",
         "in": "header"
