@@ -682,6 +682,167 @@
           "description": "Send a array of objects to the API for users that must be updated"
         }
       }
+    },
+    "/activities/add": {
+      "post": {
+        "summary": "addActivities",
+        "tags": [
+          "Player-Activity"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response_code": {
+                      "type": "string"
+                    },
+                    "unsaved_entities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "start_time": {
+                            "type": "string"
+                          },
+                          "end_time": {
+                            "type": "string"
+                          },
+                          "server": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "uuid",
+                          "type",
+                          "start_time",
+                          "end_time",
+                          "server"
+                        ]
+                      }
+                    },
+                    "serialize": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "response_code": 200,
+                      "unsaved_entities": [],
+                      "serialize": "act_add_200"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-activities-add",
+        "description": "Add activity or activities from players into the database",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "uuid": {
+                      "type": "string",
+                      "format": "uuid",
+                      "pattern": "^[A-Za-z0-9_]+",
+                      "minLength": 32,
+                      "maxLength": 36,
+                      "example": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                      "description": "Player UUID"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "join/leave",
+                      "pattern": "^[A-Za-z]+",
+                      "minLength": 3,
+                      "maxLength": 10,
+                      "description": "\"join/leave\" or \"AFK\""
+                    },
+                    "start_time": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2020-05-23T12:00:00Z",
+                      "pattern": "^[A-Z0-9-:]+",
+                      "minLength": 20,
+                      "maxLength": 20,
+                      "description": "YYYY-MM-DDTH:i:sZ"
+                    },
+                    "end_time": {
+                      "type": "string",
+                      "format": "date-time",
+                      "pattern": "^[A-Z0-9-:]+",
+                      "minLength": 20,
+                      "maxLength": 20,
+                      "example": "2020-05-23T14:00:00Z",
+                      "description": "YYYY-MM-DDTH:i:sZ"
+                    },
+                    "server": {
+                      "type": "string",
+                      "maxLength": 200,
+                      "description": "Server code"
+                    }
+                  },
+                  "required": [
+                    "uuid",
+                    "type",
+                    "start_time",
+                    "end_time",
+                    "server"
+                  ]
+                }
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "activities": [
+                      {
+                        "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                        "type": "AFK",
+                        "start_time": "2020-05-21T13:50:10",
+                        "end_time": "2020-05-21T13:54:51",
+                        "server": "XJLKFJLKJS1345"
+                      },
+                      {
+                        "uuid": "16fdbe74-daf6-434f-9701-558d01c73G91",
+                        "type": "join/leave",
+                        "start_time": "2020-05-21T16:50:10",
+                        "end_time": "2020-05-21T18:14:38",
+                        "server": "XJLKFJLKJS1345"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        },
+        "security": [
+          {
+            "Subscription Key": []
+          },
+          {
+            "The session key": []
+          }
+        ]
+      }
     }
   },
   "components": {
