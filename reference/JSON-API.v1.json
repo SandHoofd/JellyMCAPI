@@ -759,19 +759,49 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "UUID": {
-                    "type": "string"
-                  },
-                  "actives OBJ": {
+                  "data": {
                     "type": "array",
                     "items": {
-                      "type": "object"
-                    }
-                  },
-                  "Inactives OBJ": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
+                      "type": "object",
+                      "properties": {
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "Actives OBJ": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "start_timestamp": {
+                                "type": "string"
+                              },
+                              "end_timestamp": {
+                                "type": "string"
+                              },
+                              "server": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "Inactives OBJ": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "start_timestamp": {
+                                "type": "string"
+                              },
+                              "end_timestamp": {
+                                "type": "string"
+                              },
+                              "server": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
