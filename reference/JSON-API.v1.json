@@ -181,9 +181,9 @@
                 "examples": {
                   "application/json": {
                     "value": {
+                      "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
                       "Actives": [
                         {
-                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
                           "start_timestamp": "2020-05-10T12:16:14",
                           "end_timestamp": "2020-05-10T12:17:34",
                           "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
@@ -191,7 +191,6 @@
                       ],
                       "Inactives": [
                         {
-                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
                           "start_timestamp": "2020-05-10T12:16:14",
                           "end_timestamp": "2020-05-10T12:17:34",
                           "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
@@ -356,9 +355,9 @@
                 "examples": {
                   "example-1": {
                     "value": {
+                      "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
                       "Actives": [
                         {
-                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
                           "start_timestamp": "2020-05-10T12:16:14",
                           "end_timestamp": "2020-05-10T12:17:34",
                           "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
@@ -366,13 +365,11 @@
                       ],
                       "Inactives": [
                         {
-                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
                           "start_timestamp": "2020-05-10T12:16:14",
                           "end_timestamp": "2020-05-10T12:17:34",
                           "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
                         },
                         {
-                          "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
                           "start_timestamp": "2020-05-12T12:16:14",
                           "end_timestamp": "2020-05-12T12:17:34",
                           "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
