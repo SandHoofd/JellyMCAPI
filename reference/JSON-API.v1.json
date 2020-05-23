@@ -381,6 +381,12 @@
                     }
                   }
                 }
+              },
+              "application/javascript": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
               }
             }
           }
@@ -856,6 +862,17 @@
         "name": "SessionKey",
         "type": "apiKey",
         "in": "header"
+      }
+    },
+    "schemas": {
+      "plzyer": {
+        "title": "player",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
       }
     }
   }
