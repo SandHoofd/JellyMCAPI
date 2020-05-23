@@ -817,20 +817,20 @@
               "examples": {
                 "example-1": {
                   "value": {
-                    "activities": [
+                    "Actives": [
                       {
                         "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
-                        "type": "AFK",
-                        "start_time": "2020-05-21T13:50:10",
-                        "end_time": "2020-05-21T13:54:51",
-                        "server": "XJLKFJLKJS1345"
-                      },
+                        "start_timestamp": "2020-05-10T12:16:14",
+                        "end_timestamp": "2020-05-10T12:17:34",
+                        "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                      }
+                    ],
+                    "Inactives": [
                       {
-                        "uuid": "16fdbe74-daf6-434f-9701-558d01c73G91",
-                        "type": "join/leave",
-                        "start_time": "2020-05-21T16:50:10",
-                        "end_time": "2020-05-21T18:14:38",
-                        "server": "XJLKFJLKJS1345"
+                        "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
+                        "start_timestamp": "2020-05-10T12:16:14",
+                        "end_timestamp": "2020-05-10T12:17:34",
+                        "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
                       }
                     ]
                   }
