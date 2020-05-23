@@ -757,77 +757,45 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "uuid": {
-                      "type": "string",
-                      "format": "uuid",
-                      "pattern": "^[A-Za-z0-9_]+",
-                      "minLength": 32,
-                      "maxLength": 36,
-                      "example": "4efdbe74-daf6-434f-8807-558d01c73c28",
-                      "description": "Player UUID"
-                    },
-                    "type": {
-                      "type": "string",
-                      "example": "join/leave",
-                      "pattern": "^[A-Za-z]+",
-                      "minLength": 3,
-                      "maxLength": 10,
-                      "description": "\"join/leave\" or \"AFK\""
-                    },
-                    "start_time": {
-                      "type": "string",
-                      "format": "date-time",
-                      "example": "2020-05-23T12:00:00Z",
-                      "pattern": "^[A-Z0-9-:]+",
-                      "minLength": 20,
-                      "maxLength": 20,
-                      "description": "YYYY-MM-DDTH:i:sZ"
-                    },
-                    "end_time": {
-                      "type": "string",
-                      "format": "date-time",
-                      "pattern": "^[A-Z0-9-:]+",
-                      "minLength": 20,
-                      "maxLength": 20,
-                      "example": "2020-05-23T14:00:00Z",
-                      "description": "YYYY-MM-DDTH:i:sZ"
-                    },
-                    "server": {
-                      "type": "string",
-                      "maxLength": 200,
-                      "description": "Server code"
+                "type": "object",
+                "properties": {
+                  "UUID": {
+                    "type": "string"
+                  },
+                  "actives OBJ": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
                     }
                   },
-                  "required": [
-                    "uuid",
-                    "type",
-                    "start_time",
-                    "end_time",
-                    "server"
-                  ]
+                  "Inactives OBJ": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
                 }
               },
               "examples": {
                 "example-1": {
                   "value": {
-                    "Actives": [
+                    "data": [
                       {
                         "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
-                        "start_timestamp": "2020-05-10T12:16:14",
-                        "end_timestamp": "2020-05-10T12:17:34",
-                        "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
-                      }
-                    ],
-                    "Inactives": [
-                      {
-                        "uuid": "4efdbe74-daf6-434f-8807-558d01c73c28",
-                        "start_timestamp": "2020-05-10T12:16:14",
-                        "end_timestamp": "2020-05-10T12:17:34",
-                        "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                        "Actives": [
+                          {
+                            "start_timestamp": "2020-05-10T12:16:14",
+                            "end_timestamp": "2020-05-10T12:17:34",
+                            "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                          }
+                        ],
+                        "Inactives": [
+                          {
+                            "start_timestamp": "2020-05-10T12:16:14",
+                            "end_timestamp": "2020-05-10T12:17:34",
+                            "server": "YLKJRHLJLD452GLS3LGD9KJFHS1"
+                          }
+                        ]
                       }
                     ]
                   }
